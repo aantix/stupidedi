@@ -9,11 +9,11 @@ class String
   #
   def blank?
     self !~ /\S/
-  end
+  end unless method_defined?(:blank?)
 
   def present?
     self =~ /\S/
-  end
+  end unless method_defined?(:present?)
 end
 
 module Enumerable
@@ -26,11 +26,11 @@ module Enumerable
   #
   def blank?
     empty?
-  end
+  end unless method_defined?(:blank?)
 
   def present?
     not empty?
-  end
+  end unless method_defined?(:present?)
 end
 
 class NilClass
@@ -42,11 +42,11 @@ class NilClass
   #
   def blank?
     true
-  end
+  end unless method_defined?(:blank?)
 
   def present?
     false
-  end
+  end unless method_defined?(:present?)
 end
 
 class Object
@@ -59,9 +59,9 @@ class Object
   #
   def blank?
     false
-  end
+  end unless method_defined?(:blank?)
 
   def present?
     true
-  end
+  end unless method_defined?(:present?)
 end

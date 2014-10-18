@@ -64,10 +64,12 @@ module Stupidedi
                 b::Element(e::Situational,  "Weight Qualifier", b::Values("G")),
                 b::Element(e::Situational, "Weight"),
                 b::Element(e::Situational, "Unit or Basis for Measurement Code", b::Values("LB"))),
-             b::Segment(1500, s::REF, "Reference Identification",
+              b::Segment(1500, s::REF, "Reference Identification",
                 r::Required, d::RepeatCount.unbounded,
                 b::Element(e::Required,    "Reference Identification Qualifier", b::Values("BM","OI","PK","SI")),
-                b::Element(e::Situational, "Reference Identification")),
+                b::Element(e::Situational, "Reference Identification"),
+                b::Element(e::NotUsed, "E352"),
+                b::Element(e::NotUsed, "C040")),
 
               d::LoopDef.build("N1", d::RepeatCount.bounded(200),
                 b::Segment(3700, s:: N1, "Name SEGMENT #1",
@@ -109,7 +111,9 @@ module Stupidedi
               b::Segment(6300, s::REF, "Reference Identification",
                 r::Required, d::RepeatCount.bounded(1),
                 b::Element(e::Required, "Reference Identification Qualifier", b::Values("LS")),
-                b::Element(e::Required, "Reference Identification")),
+                b::Element(e::Required, "Reference Identification"),
+                b::Element(e::NotUsed, "E352"),
+                b::Element(e::NotUsed, "C040"))),
 
             d::LoopDef.build("HL", d::RepeatCount.bounded(200000),
               b::Segment(6500, s:: HL, "Hierarchical Level",
@@ -161,7 +165,19 @@ module Stupidedi
                 b::Element(e::NotUsed,     "Quantity Ordered"),
                 b::Element(e::NotUsed,     "Unit or Basis for Measurement Code"),
                 b::Element(e::NotUsed,     "Returnable Container Load Make-Up Code"),
-                b::Element(e::NotUsed,     "Line Item Status Code"))))),
+                b::Element(e::NotUsed,     "Line Item Status Code")),
+
+              b::Segment(6800, s::PRF, "Purchase Order Reference",
+                r::Situational, d::RepeatCount.bounded(1),
+                b::Element(e::Required,    "Purchase Order Number"),
+                b::Element(e::Situational, "Release Number")),
+
+              b::Segment(6900, s::REF, "Reference Identification",
+                r::Situational, d::RepeatCount.bounded(1),
+                b::Element(e::Required, "Reference Identification Qualifier"),
+                b::Element(e::Required, "Reference Identification"),
+                b::Element(e::NotUsed, "E352"),
+                b::Element(e::NotUsed, "C040")))),
 
 
           d::TableDef.header("Summary",

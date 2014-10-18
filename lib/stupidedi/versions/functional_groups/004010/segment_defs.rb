@@ -293,6 +293,9 @@ module Stupidedi
           autoload :SCH,
             "stupidedi/versions/functional_groups/004010/segment_defs/SCH"
 
+          autoload :PRF,
+            "stupidedi/versions/functional_groups/004010/segment_defs/PRF"
+
         end
       end
     end

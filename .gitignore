@@ -1,2 +1,5 @@
 .yardoc
 doc/generated
+TAGS
+coverage
+*.gem

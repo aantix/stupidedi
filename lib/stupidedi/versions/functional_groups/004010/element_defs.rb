@@ -10,21 +10,7 @@ module Stupidedi
 
           E375  = t::ID.new(:E375 , "Tariff Service Code"                  , 2, 2)
 
-          E140  = t::ID.new(:E140 , "Standard Carrier Alpha Code"          , 2, 4,
-            s::CodeList.build(
-              "RBTW" => "RBTW",
-              "RBLT" => "RBLT",
-              "CHRI" => "CHRI",
-              "CHXD" => "CHXD",
-              "RBIN" => "RBIN",
-              "RBWR" => "RBWR",
-              "RBCL" => "RBCL",
-              "RBCG" => "RBCG",
-              "CHSL" => "CHSL",
-              "WGMA" => "WGMA",
-              "RBID" => "RBID",
-              "RFLB" => "RFLB",
-              "RBHD" => "RBHD"))
+          E140  = t::ID.new(:E140 , "Standard Carrier Alpha Code"          , 2, 4)
 
           E154  = t::ID.new(:E154 , "Standard Point Location Code"         , 6, 9)
 
